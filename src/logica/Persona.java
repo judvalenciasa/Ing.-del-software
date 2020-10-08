@@ -46,24 +46,10 @@ public class Persona {
     }
 
     /**
-     * @param nombre the nombre to set
-     */
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    /**
      * @return the estatura
      */
     public double getEstatura() {
         return estatura;
-    }
-
-    /**
-     * @param estatura the estatura to set
-     */
-    public void setEstatura(double estatura) {
-        this.estatura = estatura;
     }
 
     /**
@@ -73,16 +59,9 @@ public class Persona {
         return peso;
     }
 
-    /**
-     * @param peso the peso to set
-     */
-    public void setPeso(double peso) {
-        this.peso = peso;
-    }
-
     @Override
     public String toString() {
-        return "Nombre: " + this.getNombre() + ", --> IMC: " + this.obtenerIMC();
+        return "Nombre: " + this.getNombre() + "--> IMC: " + this.obtenerIMC();
     }
     
     /**
@@ -90,7 +69,7 @@ public class Persona {
      * @return un numero doble con el resultado del indice de masa corporal
      */
     private double obtenerIMC(){
-        return (this.peso/(Math.pow(this.estatura, 2)));
+        return (this.getPeso()/(Math.pow(this.getEstatura(), 2)));
     }
 
 }

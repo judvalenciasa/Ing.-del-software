@@ -6,7 +6,7 @@ import logica.Mundo;
 import logica.Persona;
 
 /**
- * 
+ *
  * @author 57310
  */
 public class Ventana extends javax.swing.JFrame {
@@ -18,9 +18,9 @@ public class Ventana extends javax.swing.JFrame {
     public Ventana() {
         initComponents();
     }
-    
-    public void llenar_Modelo(){
-        for(Persona p: this.m.getPersonas()){
+
+    public void llenar_Modelo() {
+        for (Persona p : this.m.getPersonas()) {
             this.modelo.addElement(p);
         }
         resultado.setModel(modelo);
@@ -37,16 +37,16 @@ public class Ventana extends javax.swing.JFrame {
 
         panel1 = new vista.Panel();
         panel2 = new vista.Panel();
-        jButton1 = new javax.swing.JButton();
+        botonIngresarPersona = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         resultado = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Ingresar persona");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botonIngresarPersona.setText("Ingresar persona");
+        botonIngresarPersona.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botonIngresarPersonaActionPerformed(evt);
             }
         });
 
@@ -57,69 +57,83 @@ public class Ventana extends javax.swing.JFrame {
         panel2Layout.setHorizontalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel2Layout.createSequentialGroup()
-                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel2Layout.createSequentialGroup()
-                        .addGap(134, 134, 134)
-                        .addComponent(jButton1))
-                    .addGroup(panel2Layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addGap(54, 54, 54)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 742, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botonIngresarPersona)
+                .addGap(337, 337, 337))
         );
         panel2Layout.setVerticalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton1)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
-                .addGap(19, 19, 19))
+                .addComponent(botonIngresarPersona)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panel1Layout.createSequentialGroup()
+                .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 60, Short.MAX_VALUE))
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1Layout.createSequentialGroup()
                 .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 82, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 33, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void botonIngresarPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIngresarPersonaActionPerformed
 
         if (this.isSalga() == false) {
             String nombre = JOptionPane.showInputDialog("Ingrese el NOMBRE de la persona");
-            String entradaEstatura = JOptionPane.showInputDialog("Ingrese la ESTATURA de la persona");
-            String entradaPeso = JOptionPane.showInputDialog("Ingrese el PESO de la persona");
-            double estatura = Double.parseDouble(entradaEstatura);
-            double peso = Double.parseDouble(entradaPeso);
-            this.m.crear_Persona(nombre, estatura, peso);
+            String entradaEstatura = JOptionPane.showInputDialog("Ingrese la ESTATURA de la persona en metros");
+            String entradaPeso = JOptionPane.showInputDialog("Ingrese el PESO de la persona en kilos");
             
-            String salir = JOptionPane.showInputDialog(">>Escriba 's' si Desea salir?? si desea ingresar un nuevo dato enter ");
-            if(salir.equals("s")){
-                this.llenar_Modelo();
-                this.setSalga(true);
+            if (entradaEstatura.equals("") || entradaPeso.equals("") || nombre.equals("") ) {
+                JOptionPane.showConfirmDialog(null, "Datos invalidos", "Atención ",
+                        JOptionPane.WARNING_MESSAGE);
+
+            } else {
+                double estatura = Double.parseDouble(entradaEstatura);
+                double peso = Double.parseDouble(entradaPeso);
+                this.m.crearPersona(nombre, estatura, peso);
+                int salida = JOptionPane.showConfirmDialog(null, "Desea ingresar otra persona?", "Atención ", JOptionPane.OK_CANCEL_OPTION,
+                        JOptionPane.WARNING_MESSAGE);
+
+                if (salida != 0) {
+                    this.llenar_Modelo();
+                    this.setSalga(true);
+                    JOptionPane.showConfirmDialog(null, "Fin programa", "Adios ",
+                        JOptionPane.WARNING_MESSAGE);
+                }
             }
-        } 
-    }//GEN-LAST:event_jButton1ActionPerformed
+
+        }
+    }//GEN-LAST:event_botonIngresarPersonaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -157,7 +171,7 @@ public class Ventana extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton botonIngresarPersona;
     private javax.swing.JScrollPane jScrollPane1;
     private vista.Panel panel1;
     private vista.Panel panel2;
@@ -170,7 +184,6 @@ public class Ventana extends javax.swing.JFrame {
     public boolean isSalga() {
         return salga;
     }
-
     /**
      * @param salga the salga to set
      */
